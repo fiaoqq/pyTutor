@@ -1,0 +1,152 @@
+{
+  "assistente": "PyTutor",
+  "versao": "1.0",
+  "ultima_atualizacao": "2026-10",
+  "descricao": "Base de conhecimento curada sobre fundamentos de Python para iniciantes.",
+  "fonte_principal": "https://docs.python.org/pt-br/3/tutorial/",
+  "topicos": [
+    {
+      "id": "variaveis",
+      "titulo": "Variáveis e tipos básicos",
+      "nivel": "iniciante",
+      "palavras_chave": ["variável", "tipo", "int", "float", "str", "bool"],
+      "explicacao": "Variável é um nome que guarda um valor. Tipos comuns: int (inteiro), float (decimal), str (texto) e bool (True/False). O Python descobre o tipo sozinho. Use type(valor) para ver o tipo de um valor.",
+      "exemplo": "idade = 25            # int\naltura = 1.75         # float\nnome = 'Ana'          # str\nestudando = True      # bool\nprint(type(idade), type(nome))  # <class 'int'> <class 'str'>",
+      "erros_comuns": [
+        "Esquecer as aspas em texto: nome = Ana causa NameError",
+        "Usar vírgula como decimal: 1,75 cria uma tupla; o correto é 1.75",
+        "Escrever True/False com outra caixa: true ou TRUE não existem"
+      ]
+    },
+    {
+      "id": "strings",
+      "titulo": "Strings e f-strings",
+      "nivel": "iniciante",
+      "palavras_chave": ["string", "texto", "f-string", "formatar", "upper", "strip", "split"],
+      "explicacao": "Texto (str) fica entre aspas. f-string formata valores dentro do texto: coloque f antes das aspas e o valor entre chaves. Métodos comuns: .upper() (maiúsculas), .lower() (minúsculas), .strip() (remove espaços das pontas), .split(separador) (divide em lista). Strings são imutáveis: não dá para alterar uma posição diretamente.",
+      "exemplo": "nome = '  Ana  '\nprint(f'Olá, {nome.strip()}!')   # Olá, Ana!\nprint(nome.strip().upper())      # ANA\nprint('a,b,c'.split(','))        # ['a', 'b', 'c']",
+      "erros_comuns": [
+        "Esquecer o f antes das aspas: '{nome}' imprime literalmente as chaves",
+        "Tentar alterar uma posição da string: nome[0] = 'B' causa TypeError",
+        "Somar texto com número sem converter: 'idade: ' + 25 causa TypeError"
+      ]
+    },
+    {
+      "id": "listas",
+      "titulo": "Listas",
+      "nivel": "iniciante",
+      "palavras_chave": ["lista", "append", "índice", "len", "slicing", "fatiar"],
+      "explicacao": "Lista guarda vários valores em ordem, entre colchetes. O índice começa em 0. use .append(x) para adicionar no fim e len(lista) para contar itens. Índice negativo acessa do fim: lista[-1] é o último item. Fatiar: lista[1:3] pega do índice 1 até antes do 3.",
+      "exemplo": "frutas = ['maçã', 'banana']\nfrutas.append('uva')\nprint(frutas[0])       # maçã\nprint(frutas[-1])      # uva (último)\nprint(len(frutas))     # 3\nprint(frutas[0:2])     # ['maçã', 'banana']",
+      "erros_comuns": [
+        "IndexError ao acessar índice que não existe: em [10, 20, 30] o último índice é 2, não 3",
+        "Confundir .append() (adiciona um item) com .extend() (junta outra lista)",
+        "Achar que o primeiro item está no índice 1"
+      ]
+    },
+    {
+      "id": "dicionarios",
+      "titulo": "Dicionários",
+      "nivel": "iniciante",
+      "palavras_chave": ["dicionário", "dict", "chave", "valor", "get", "items"],
+      "explicacao": "Dicionário guarda pares chave: valor entre chaves {}. Acesse com dicionario['chave']. O método .get('chave', padrao) devolve um valor padrão quando a chave não existe, evitando erro. Iterar com .items() dá chave e valor juntos.",
+      "exemplo": "pessoa = {'nome': 'Ana', 'idade': 25}\nprint(pessoa['nome'])                  # Ana\nprint(pessoa.get('email', 'não tem'))  # não tem\nfor chave, valor in pessoa.items():\n    print(chave, '=', valor)",
+      "erros_comuns": [
+        "KeyError ao acessar chave inexistente com colchetes; use .get() quando a chave pode não existir",
+        "Esquecer os dois-pontos entre chave e valor",
+        "Usar lista como chave: listas não podem ser chave, dá TypeError"
+      ]
+    },
+    {
+      "id": "condicionais",
+      "titulo": "Condições if / elif / else",
+      "nivel": "iniciante",
+      "palavras_chave": ["if", "elif", "else", "condição", "comparação", "=="],
+      "explicacao": "if executa um bloco quando a condição é verdadeira. elif testa outra condição. else cobre o restante. A indentação (4 espaços) define o bloco, e a linha da condição termina com dois-pontos. Comparações: == (igual), != (diferente), >, <, >=, <=. Combine com and, or, not.",
+      "exemplo": "nota = 7.5\nif nota >= 7:\n    print('Aprovado')\nelif nota >= 5:\n    print('Recuperação')\nelse:\n    print('Reprovado')",
+      "erros_comuns": [
+        "Usar = (atribuição) em vez de == (comparação) dentro do if",
+        "Esquecer os dois-pontos no fim da linha do if/elif/else",
+        "Indentação errada ou inconsistente gera IndentationError"
+      ]
+    },
+    {
+      "id": "lacos",
+      "titulo": "Laços for e while",
+      "nivel": "iniciante",
+      "palavras_chave": ["for", "while", "range", "laço", "repetir", "break", "continue"],
+      "explicacao": "for percorre uma sequência (lista, string, range). range(n) gera números de 0 até n-1. while repete enquanto a condição for verdadeira. break sai do laço antes do fim; continue pula para a próxima repetição.",
+      "exemplo": "for i in range(3):\n    print(i)          # 0, 1, 2\n\ncontador = 0\nwhile contador < 3:\n    print(contador)\n    contador += 1     # sem esta linha o laço nunca termina",
+      "erros_comuns": [
+        "Esquecer de atualizar a variável do while: gera laço infinito",
+        "Esperar que range(3) inclua o número 3: ele para antes",
+        "Remover itens de uma lista enquanto itera sobre ela: o índice sai do lugar"
+      ]
+    },
+    {
+      "id": "funcoes",
+      "titulo": "Funções",
+      "nivel": "iniciante",
+      "palavras_chave": ["função", "def", "return", "parâmetro", "argumento"],
+      "explicacao": "def cria uma função. Parâmetros são as entradas; return devolve o resultado para quem chamou. Sem return, a função devolve None. Parâmetros podem ter valor padrão. Uma boa função faz uma coisa só e tem nome claro.",
+      "exemplo": "def media(nota1, nota2=0):\n    return (nota1 + nota2) / 2\n\nprint(media(8, 6))   # 7.0\nprint(media(10))     # 5.0 (nota2 usa o padrão)",
+      "erros_comuns": [
+        "Usar print em vez de return e depois não conseguir guardar o resultado (vem None)",
+        "Esquecer os parênteses na chamada: media em vez de media()",
+        "Chamar a função antes de defini-la no script gera NameError"
+      ]
+    },
+    {
+      "id": "entrada_saida",
+      "titulo": "Entrada e saída (input e print)",
+      "nivel": "iniciante",
+      "palavras_chave": ["input", "print", "usuário", "ler", "digitar"],
+      "explicacao": "print mostra valores na tela. input() lê o que a pessoa digita e SEMPRE devolve str; converta com int() ou float() quando precisar de número. input pausa o programa até a pessoa digitar e apertar Enter.",
+      "exemplo": "nome = input('Qual seu nome? ')\nidade = int(input('Qual sua idade? '))\nprint(f'{nome} tem {idade} anos')",
+      "erros_comuns": [
+        "Somar input diretamente com número sem converter: gera TypeError",
+        "Esperar que input devolva número: ele sempre devolve texto",
+        "Converter com int() um texto que não é número: gera ValueError (ex.: int('abc'))"
+      ]
+    },
+    {
+      "id": "erros",
+      "titulo": "Erros e exceções",
+      "nivel": "iniciante",
+      "palavras_chave": ["erro", "exceção", "traceback", "try", "except", "TypeError", "IndexError", "NameError", "KeyError", "ValueError"],
+      "explicacao": "Leia a mensagem de erro de baixo para cima: a última linha diz o tipo do erro, o traceback mostra onde aconteceu. Erros comuns: NameError (nome não definido), TypeError (tipos incompatíveis), IndexError (índice fora da lista), KeyError (chave não existe), ValueError (valor inválido na conversão). try/except captura o erro e evita que o programa pare.",
+      "exemplo": "try:\n    numero = int('abc')\nexcept ValueError:\n    print('Digite um número válido')\n\nentrada = int('42')   # aqui funciona: vira 42",
+      "erros_comuns": [
+        "Capturar Exception genérico demais esconde bugs; capture o erro específico",
+        "Ignorar a mensagem de erro em vez de ler o tipo e a linha indicada",
+        "Usar except sem try: o except faz parte do bloco try"
+      ]
+    },
+    {
+      "id": "modulos",
+      "titulo": "Módulos e imports",
+      "nivel": "iniciante",
+      "palavras_chave": ["import", "módulo", "biblioteca", "pacote", "pip", "ModuleNotFoundError"],
+      "explicacao": "import traz código de outro arquivo ou biblioteca. import math permite usar math.sqrt(x). from math import sqrt traz só a função. Pacotes externos (ex.: requests) precisam ser instalados com pip install antes do import.",
+      "exemplo": "import math\nprint(math.sqrt(16))        # 4.0\n\nfrom random import randint\nprint(randint(1, 6))        # dado de 6 lados",
+      "erros_comuns": [
+        "ModuleNotFoundError: o pacote não está instalado; rode pip install nome-do-pacote",
+        "Criar um arquivo com o mesmo nome da biblioteca (ex.: random.py) quebra o import",
+        "Esquecer de ativar o ambiente virtual antes de instalar"
+      ]
+    },
+    {
+      "id": "ambiente_virtual",
+      "titulo": "Ambiente virtual e pip",
+      "nivel": "iniciante",
+      "palavras_chave": ["venv", "ambiente virtual", "pip", "instalar", "dependências"],
+      "explicacao": "Ambiente virtual isola as bibliotecas do projeto. Crie com python -m venv .venv, ative antes de trabalhar e instale pacotes com pip install. Assim um projeto não bagunça o Python do sistema. A pasta .venv não deve ir para o Git.",
+      "exemplo": "python -m venv .venv\nsource .venv/bin/activate    # Linux/Mac\n.venv\\Scripts\\activate       # Windows (cmd)\npip install requests",
+      "erros_comuns": [
+        "Esquecer de ativar o venv: os pacotes vão para o Python global",
+        "Committar a pasta .venv: adicione-a ao .gitignore",
+        "Rodar python -m venv toda vez: criar uma vez e só ativar depois"
+      ]
+    }
+  ]
+}
